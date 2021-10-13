@@ -271,5 +271,4 @@ yarn-error.log*
 
 # Our settings
 *.lock
-src/
 public/
