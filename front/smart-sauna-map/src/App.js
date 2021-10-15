@@ -24,7 +24,21 @@ class NameForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
+    // POST
+    const url = "http://localhost:5000/";
+
+    const requestOptions ={
+      method: 'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify({"query": this.state.value})
+    };
+
+    fetch(url, requestOptions
+    ).then((response) => response.json()
+    ).then((responseJson) => {
+      console.log(responseJson)
+    })
+
     event.preventDefault();
   }
 
