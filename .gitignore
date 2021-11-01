@@ -271,4 +271,6 @@ yarn-error.log*
 
 # Our settings
 *.lock
+*package-lock.json
 public/
+.secrets/

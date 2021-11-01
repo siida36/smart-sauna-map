@@ -1,11 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import MyComponent from './Map.js';
 
 function App() {
   return (
     <div className="App">
       <NameForm />
+      <MyComponent />
     </div>
   );
 }
