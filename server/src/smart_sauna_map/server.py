@@ -2,6 +2,7 @@ from typing import Optional
 
 from flask import Flask, jsonify, make_response, request
 from flask_cors import CORS  # type: ignore
+from smart_sauna_map.get_latlng import main as get_latlng_main
 
 app = Flask(__name__, static_folder="./build/static", template_folder="./build")
 CORS(app)  # Cross Origin Resource Sharing
@@ -10,7 +11,7 @@ CORS(app)  # Cross Origin Resource Sharing
 @app.route("/", methods=["GET", "POST"])
 def index():
     query: Optional[str] = request.get_json()["query"]
-    return make_response(jsonify(echo_request(query)))
+    return make_response(jsonify(get_latlng_main(query)))
 
 
 @app.after_request

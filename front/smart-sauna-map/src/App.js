@@ -2,6 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import MyComponent from './Map.js';
+import { Location } from './Database.js';
+
+const location_db = new Location();
 
 function App() {
   return (
@@ -38,7 +41,11 @@ class NameForm extends React.Component {
     fetch(url, requestOptions
     ).then((response) => response.json()
     ).then((responseJson) => {
+      console.log("Response;");
       console.log(responseJson)
+      location_db.add_to_db(this.state.value, responseJson.lat, responseJson.lng);
+      console.log(location_db.get_from_db(this.state.value));
+      console.log("Submission event is finished.");
     })
 
     event.preventDefault();
