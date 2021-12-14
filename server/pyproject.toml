@@ -11,6 +11,10 @@ packages = [
 python = "^3.9"
 Flask = "^2.0.2"
 Flask-Cors = "^3.0.10"
+beautifulsoup4 = "^4.10.0"
+requests = "^2.26.0"
+geopy = "^2.2.0"
+python-dotenv = "^0.19.2"
 
 [tool.poetry.dev-dependencies]
 black = "^21.9b0"
@@ -20,6 +24,12 @@ pre-commit = "^2.15.0"
 mypy = "^0.910"
 pytest = "^6.2.5"
 jedi = "^0.18.0"
+snoop = "^0.4.1"
+requests-mock = "^1.9.3"
+ipython = "^7.29.0"
+mock = "^4.0.3"
+pytest-mock = "^3.6.1"
+geopy = "^2.2.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
