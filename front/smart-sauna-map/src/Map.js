@@ -1,72 +1,52 @@
-import React from 'react'
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
-import Dexie from 'dexie';
-import { Location } from './Database';
+import React, { useState, useEffect } from "react";
+import GoogleMapReact from "google-map-react";
 
-require('dotenv').config();
+//APIKEYは""としていれば開発者モードで使えます
+const APIKEY = process.env.REACT_APP_K;
 
-const db = new Location();
+const Maps = (props) => {
+  const [center, setCenter] = useState(props);
+  const [zoom, setZoom] = useState(13);
+  const [currentPosition, setCurrentPosition] = useState();
 
-const containerStyle = {
-  width: '400px',
-  height: '400px'
+  useEffect(() => {
+     setCenter(props);
+     console.log("@useeffect");
+     console.log(props);
+ }, [props])
+
+  // 初期表示地点
+  const success = data => {
+    const currentPosition = {
+      lat: data.coords.latitude,
+      lng: data.coords.longitude
+    };
+    setCurrentPosition(currentPosition);
+    setCenter(currentPosition);
+  };
+
+  const error = data => {
+    const currentPosition = {
+      lat: 35.673542,
+      lng: 135.433338
+    };
+    setCurrentPosition(currentPosition);
+    setCenter(currentPosition);
+  };
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(success, error);
+  }, []);
+
+  return (
+    <div style={{ height: "100vh", width: "100%" }}>
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: APIKEY }}
+        center={center.center}
+        defaultZoom={zoom}
+      >
+      </GoogleMapReact>
+    </div>
+  );
 };
 
-const center = get_center();
-
-
-function get_center() {
-  var center = {
-    lat: 35.745,
-    lng: 140.523
-  };
-
-  var res = db.get_from_db("新宿");
-
-  center = {
-    lat: res.lat,
-    lng: res.lng
-  };
-
-  console.log("current center;");
-  console.log(center);
-  return center;
-}
-
-function MyComponent() {
-  console.log(db.get_from_db("hoge"));
-  console.log("MyComponent is called");
-  const k = process.env.REACT_APP_K;
-
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: k
-  })
-
-  const [map, setMap] = React.useState(null)
-
-  const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds();
-    map.fitBounds(bounds);
-    setMap(map)
-  }, [])
-
-  const onUnmount = React.useCallback(function callback(map) {
-    setMap(null)
-  }, [])
-
-  return isLoaded ? (
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={10}
-        //onLoad={onLoad} // これがいると海中に投げ出される
-        onUnmount={onUnmount}
-      >
-        { /* Child components, such as markers, info windows, etc. */ }
-        <></>
-      </GoogleMap>
-  ) : <></>
-}
-
-export default React.memo(MyComponent)
+export default Maps;
