@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
-import GoogleMapReact from "google-map-react";
+import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
-//APIKEYは""としていれば開発者モードで使えます
 const APIKEY = process.env.REACT_APP_K;
+
+const containerStyle = {
+  width: "100vh",
+  height: "100%",
+};
 
 const Maps = (props) => {
   const [center, setCenter] = useState(props);
@@ -39,12 +43,13 @@ const Maps = (props) => {
 
   return (
     <div style={{ height: "100vh", width: "100%" }}>
-      <GoogleMapReact
-        bootstrapURLKeys={{ key: APIKEY }}
-        center={center.center}
-        defaultZoom={zoom}
-      >
-      </GoogleMapReact>
+      <LoadScript googleMapsApiKey={APIKEY}>
+        <GoogleMap
+          mapContainerStyle={containerStyle}
+          center={center.center}
+          zoom={zoom}
+        ></GoogleMap>
+      </LoadScript>
     </div>
   );
 };
