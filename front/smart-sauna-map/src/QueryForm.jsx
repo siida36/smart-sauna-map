@@ -1,6 +1,6 @@
 import React from "react";
 
-export class QueryForm extends React.Component {
+export default class QueryForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {query: ""};  // ローカルの要素queryだけ。グローバルなcenterは入れない

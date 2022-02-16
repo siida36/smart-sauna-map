@@ -10,10 +10,10 @@ const Maps = (props) => {
   const [currentPosition, setCurrentPosition] = useState();
 
   useEffect(() => {
-     setCenter(props);
-     console.log("@useeffect");
-     console.log(props);
- }, [props])
+    setCenter(props);
+    console.log("@useeffect");
+    console.log(props);
+  }, [props])
 
   // 初期表示地点
   const success = data => {

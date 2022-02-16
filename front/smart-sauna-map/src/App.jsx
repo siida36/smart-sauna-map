@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Maps from './Map.js';
-import { QueryForm } from './QueryForm.js';
+import Maps from './Map';
+import QueryForm from './QueryForm';
 
 class App extends React.Component {
   constructor (props) {
