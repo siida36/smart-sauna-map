@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from functools import cache
 from dataclasses import dataclass
-from typing import Generator, Optional
+from typing import Optional
 
 
 import urllib.parse

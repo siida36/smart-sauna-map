@@ -24,7 +24,6 @@ def sauna():
 
     Returns:
         Response: Hit saunas.
-
     Example:
         >>> python src/smart_sauna_map/server.py
         >>> curl -X POST -H "Content-type: application/json"  -d '{"keyword": "御殿場", "prefecture": "shizuoka"}'  http://127.0.0.1:5000/sauna
