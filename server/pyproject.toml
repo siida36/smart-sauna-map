@@ -13,11 +13,8 @@ Flask = "^2.0.2"
 Flask-Cors = "^3.0.10"
 beautifulsoup4 = "^4.10.0"
 requests = "^2.26.0"
-<<<<<<< HEAD
 geopy = "^2.2.0"
 python-dotenv = "^0.19.2"
-=======
->>>>>>> main
 
 [tool.poetry.dev-dependencies]
 black = "^21.9b0"
@@ -32,10 +29,6 @@ requests-mock = "^1.9.3"
 ipython = "^7.29.0"
 mock = "^4.0.3"
 pytest-mock = "^3.6.1"
-<<<<<<< HEAD
-geopy = "^2.2.0"
-=======
->>>>>>> main
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
