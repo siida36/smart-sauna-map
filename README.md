@@ -10,7 +10,13 @@
     cd front/smart-sauna-map
     ```
 
-1. 以下のコマンドを入力してフロントエンド用のサーバーを立ち上げます。
+1. 以下のコマンドを実行してフロントエンド用のパッケージをインストールします。
+
+    ```shell
+    yarn install --immutable --immutable-cache --check-cache
+    ```
+
+1. 以下のコマンドを実行してフロントエンド用のサーバーを立ち上げます。
 
     ```shell
     yarn start
