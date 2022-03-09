@@ -13,6 +13,8 @@ Flask = "^2.0.2"
 Flask-Cors = "^3.0.10"
 beautifulsoup4 = "^4.10.0"
 requests = "^2.26.0"
+geopy = "^2.2.0"
+python-dotenv = "^0.19.2"
 
 [tool.poetry.dev-dependencies]
 black = "^21.9b0"

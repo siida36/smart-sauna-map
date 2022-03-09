@@ -24,7 +24,6 @@ def sauna():
 
     Returns:
         Response: Hit saunas.
-    
     Example:
         >>> python src/smart_sauna_map/server.py
         >>> curl -X POST -H "Content-type: application/json"  -d '{"keyword": "御殿場", "prefecture": "shizuoka"}'  http://127.0.0.1:5000/sauna
@@ -37,7 +36,7 @@ def sauna():
 
 @app.after_request
 def after_request(response):
-    # response.headers.add('Access-Control-Allow-Origin', '*')
+    # response.headers.add("Access-Control-Allow-Origin", "*")
     response.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")
     response.headers.add("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS")
     return response
