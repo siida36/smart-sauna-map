@@ -8,6 +8,7 @@ import './App.css';
 import Maps from './Map';
 import QueryForm from './QueryForm';
 import LongMenu from './LongMenu';
+import pic from '../data/img/logo.png';
 
 function App() {
   const [center, setCenter] = useState({ lat: 35.683542, lng: 139.703338 });
@@ -31,7 +32,7 @@ function App() {
       <div className="App">
         <Grid container spacing={3} justifyContent="center" alignItems="center">
           <Grid item xs={10}>
-            <p>SmartSaunaMap</p>
+            <p><img src={pic} alt="logo.png" /></p>
           </Grid>
           <Grid item xs={2}>
             <LongMenu />
